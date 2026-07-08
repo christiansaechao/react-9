@@ -1,0 +1,28 @@
+## Instructions
+- Setup a new react project using the vite command in your terminal:
+   - npm create vite@latest .  <----- ***this is not a period at the end it's part of the command***
+- Once setup you'll see all of the starter/boiler plate files and folders
+   - start in App.jsx, this is your main file where you'll be adding your components to. (Think App.jsx is my tv, components are the different shows that can be shown on the tv).
+- The file structure should look something like this:
+   - [src]
+      - [assets]
+      - App.jsx
+      - App.css
+      - index.css
+      - main.jsx
+   - extra stuff outside (don't worry about this we'll cover this more in class)
+- Inside of the [src] folder you're going to create a new folder called [components]
+   - Here is where you'll add each of your indvidual assignments/components. Examples: Button.jsx, TodoCard.jsx, Searchbar.jsx Navbar.jsx, etc
+- Components Definition - they're blueprints (HTML), smaller parts, that build up your website/application
+- So now your file structure should look similar to this:
+      - [src]
+         - [assets]
+         - [components]
+            - Greeting.jsx
+            - ProfileCard.jsx
+            - CompanyLogo.jsx
+            - Footer.jsx
+         - App.jsx
+         - App.css
+         - index.css
+         - main.jsx
