@@ -8,19 +8,23 @@ export const GroupUsers = () => {
     { id: 3, name: "Karina", role: "user" },
     { id: 4, name: "Jin", role: "admin" },
     { id: 5, name: "Bone", role: "admin" },
+    { id: 5, name: "Aziz", role: "support" },
+    { id: 5, name: "Riley", role: "it" },
   ];
 
   const groupedRoles = users.reduce(
     (acc: any, curr: any) => {
-      if (curr.role === "admin") {
-        acc.admin.push(curr);
+      const role = curr.role;
+
+      if (!acc.role) {
+        acc[role].push(curr);
       } else {
-        acc.user.push(curr);
+        acc[role].push(curr);
       }
 
       return acc;
     },
-    { admin: [], user: [] },
+    { admin: [], user: []},
   );
 
   return (
