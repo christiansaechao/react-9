@@ -13,7 +13,5 @@ Requirements:
 */
 
 export default function ContactForm() {
-
-  return (
-  );
+  return <div></div>;
 }

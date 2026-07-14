@@ -9,11 +9,29 @@ Requirements:
   (e.g., "Switch to Dark Mode")
 */
 
+/**
+ * light, dark mode
+ */
+
+/**
+ * localStorage: themePreference: dark
+ */
+
 export default function ThemeToggle() {
+  const [color, setColor] = useState("light");
+
+  function checkColor() {
+    if (color === "light") {
+      setColor("dark");
+    } else {
+      setColor("light");
+    }
+  }
 
   return (
-    <div>
-
+    <div className={color === "light" ? "bg-red-200" : "bg-blue-300"}>
+      <h1>Current Theme {color}</h1>
+      <button onClick={checkColor}>Toggle Theme</button>
     </div>
   );
 }
