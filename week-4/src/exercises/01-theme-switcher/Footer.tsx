@@ -1,5 +1,7 @@
-export default function Footer() {
-  const theme: "light" | "dark" = "light";
+import type { ThemeStuff } from '../../types/types';
+
+
+export default function Footer({ setTheme, theme }: ThemeStuff) {
 
   return (
     <footer

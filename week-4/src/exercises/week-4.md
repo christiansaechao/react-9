@@ -1,3 +1,18 @@
+# 🟢 Global State
+
+### 💡 What is Global State?
+
+**Definition:**  
+Global state (also known as shared application state) is data accessible to components across your entire application tree, regardless of their parent-child relationship, without passing props down through intermediate components ("prop drilling").
+
+**Purpose & Key Benefits:**  
+1. **Eliminate Prop Drilling:** Avoids routing state and updater functions through intermediary components that don't need or use the data themselves.
+2. **Single Source of Truth:** Ensures multiple components displaying or modifying the same domain data (e.g., current user, shopping cart, active theme) remain perfectly in sync.
+3. **Cross-Component Communication:** Enables distant or sibling components (e.g., a "Play" button on a product card and a floating sticky audio player) to trigger and reflect changes effortlessly.
+4. **App-Wide System Management:** Provides a clean pattern for managing app-wide systems like authentication sessions, notifications/toasts, user preferences, feature flags, and active routes/modals.
+
+---
+
 ## 🟢 Global State Exercises
 
 Each folder contains 2+ components that are currently **disconnected** — they each
@@ -53,6 +68,38 @@ should only render its content when someone is logged in, and show a
 
 **Goal:** one shared session (`user: { name, role } | null`) that `LoginForm`
 sets, `Navbar` reads and clears, and `ProtectedPanel` gates on.
+
+---
+
+### 5. Persistent Audio / Media Player Bar — Medium (Proposed)
+
+`TrackList` renders songs with "Play" buttons. `HeroBanner` has a "Featured Song of the Day" trigger button. `FloatingPlayerBar` (sticky bottom bar) renders the active track, play/pause state, and progress bar.
+
+**Goal:** a shared player store (`currentTrack`, `isPlaying`, `volume`) triggered from playlist or hero buttons and consumed by the floating player bar. Teaches real-world audio/video global player coordination across nested UI regions.
+
+---
+
+### 6. Multi-Step Form / Checkout Wizard — Medium (Proposed)
+
+`Step1Personal`, `Step2Shipping`, and `Step3Payment` form steps collect user input. `WizardHeader` shows step progress, while `SummarySidebar` continuously previews live values entered across all steps.
+
+**Goal:** a single shared draft state (`formData`, `activeStep`) persisting form state across component mount/unmount as the user navigates back and forth between wizard steps.
+
+---
+
+### 7. Search & Multi-Filter Explorer — Medium/Hard (Proposed)
+
+`SearchBar` handles text queries, `FilterSidebar` manages category checkboxes and price sliders, `ActiveFilterChips` renders removable tags for all active filters, and `ResultsGrid` renders the computed subset of items.
+
+**Goal:** a unified search store (`query`, `categories`, `priceRange`) driven by independent filter controls, rendered into active chips, and filtering product results in real time.
+
+---
+
+### 8. User Settings & Feature Flags — Medium (Proposed)
+
+`SettingsModal` toggles application defaults (`currency`, `language`, `fontSize`, `betaFeaturesEnabled`). `ProductPrice` formats currency according to global settings, `LayoutContainer` applies font scaling, and `BetaBadge` conditionally renders based on active feature flags.
+
+**Goal:** a global preferences store sub-divided into settings categories, demonstrating how different parts of an app subscribe selectively to specific slices of app configuration.
 
 ---
 

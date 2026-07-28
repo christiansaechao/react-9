@@ -1,6 +1,6 @@
-export default function Page() {
-  const theme: "light" | "dark" = "light";
+import type { ThemeStuff } from "../../types/types";
 
+export default function Page({ theme }: ThemeStuff) {
   return (
     <main
       style={{
