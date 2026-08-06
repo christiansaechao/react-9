@@ -1,0 +1,196 @@
+### Backend Feature Exercises Test Requests
+### Use with VS Code "REST Client" extension or Postman
+
+@baseUrl = http://localhost:3000
+
+### ==============================================
+### FEATURE 1: HEALTH API
+### ==============================================
+
+### Users (Reference)
+GET {{baseUrl}}/api/health/users
+GET {{baseUrl}}/api/health/users/1
+
+### Allergies Exercises
+GET {{baseUrl}}/api/health/allergies
+GET {{baseUrl}}/api/health/allergies/1
+
+POST {{baseUrl}}/api/health/allergies
+Content-Type: application/json
+
+{
+  "name": "Peanuts",
+  "severity": "High"
+}
+
+PUT {{baseUrl}}/api/health/allergies/1
+Content-Type: application/json
+
+{
+  "name": "Peanuts",
+  "severity": "Moderate"
+}
+
+DELETE {{baseUrl}}/api/health/allergies/1
+
+
+### Blood Types Exercises
+GET {{baseUrl}}/api/health/bloodtypes
+GET {{baseUrl}}/api/health/bloodtypes/1
+
+POST {{baseUrl}}/api/health/bloodtypes
+Content-Type: application/json
+
+{
+  "type": "O-",
+  "canDonateTo": ["O-", "O+", "A-", "A+", "B-", "B+", "AB-", "AB+"]
+}
+
+PUT {{baseUrl}}/api/health/bloodtypes/1
+DELETE {{baseUrl}}/api/health/bloodtypes/1
+
+
+### Illnesses Exercises
+GET {{baseUrl}}/api/health/illnesses
+GET {{baseUrl}}/api/health/illnesses?chronic=true
+GET {{baseUrl}}/api/health/illnesses/1
+
+POST {{baseUrl}}/api/health/illnesses
+Content-Type: application/json
+
+{
+  "name": "Asthma",
+  "chronic": true,
+  "category": "Respiratory"
+}
+
+PUT {{baseUrl}}/api/health/illnesses/1
+DELETE {{baseUrl}}/api/health/illnesses/1
+
+
+### ==============================================
+### FEATURE 2: STORE API
+### ==============================================
+
+### Products Exercises
+GET {{baseUrl}}/api/store/products
+GET {{baseUrl}}/api/store/products?category=Electronics
+GET {{baseUrl}}/api/store/products/1
+
+POST {{baseUrl}}/api/store/products
+Content-Type: application/json
+
+{
+  "name": "Wireless Headphones",
+  "price": 99.99,
+  "stock": 15,
+  "category": "Electronics"
+}
+
+PUT {{baseUrl}}/api/store/products/1
+Content-Type: application/json
+
+{
+  "price": 89.99,
+  "stock": 20
+}
+
+DELETE {{baseUrl}}/api/store/products/1
+
+
+### Orders Exercises
+GET {{baseUrl}}/api/store/orders
+GET {{baseUrl}}/api/store/orders/101
+
+POST {{baseUrl}}/api/store/orders
+Content-Type: application/json
+
+{
+  "productId": 1,
+  "quantity": 2,
+  "totalAmount": 179.98
+}
+
+PUT {{baseUrl}}/api/store/orders/101
+Content-Type: application/json
+
+{
+  "status": "shipped"
+}
+
+DELETE {{baseUrl}}/api/store/orders/101
+
+
+### Reviews Exercises
+GET {{baseUrl}}/api/store/reviews
+GET {{baseUrl}}/api/store/reviews?productId=1
+
+POST {{baseUrl}}/api/store/reviews
+Content-Type: application/json
+
+{
+  "productId": 1,
+  "author": "Jane Doe",
+  "rating": 5,
+  "comment": "Amazing sound quality!"
+}
+
+PUT {{baseUrl}}/api/store/reviews/1
+DELETE {{baseUrl}}/api/store/reviews/1
+
+
+### ==============================================
+### FEATURE 3: MEDIA API
+### ==============================================
+
+### Movies Exercises
+GET {{baseUrl}}/api/media/movies
+GET {{baseUrl}}/api/media/movies?genre=Sci-Fi
+GET {{baseUrl}}/api/media/movies/1
+
+POST {{baseUrl}}/api/media/movies
+Content-Type: application/json
+
+{
+  "title": "Inception",
+  "genre": "Sci-Fi",
+  "releaseYear": 2010,
+  "rating": "PG-13"
+}
+
+PUT {{baseUrl}}/api/media/movies/1
+DELETE {{baseUrl}}/api/media/movies/1
+
+
+### Actors Exercises
+GET {{baseUrl}}/api/media/actors
+GET {{baseUrl}}/api/media/actors/1
+
+POST {{baseUrl}}/api/media/actors
+Content-Type: application/json
+
+{
+  "name": "Leonardo DiCaprio",
+  "birthYear": 1974,
+  "famousFor": "Inception"
+}
+
+PUT {{baseUrl}}/api/media/actors/1
+DELETE {{baseUrl}}/api/media/actors/1
+
+
+### Playlists Exercises
+GET {{baseUrl}}/api/media/playlists
+GET {{baseUrl}}/api/media/playlists/1
+
+POST {{baseUrl}}/api/media/playlists
+Content-Type: application/json
+
+{
+  "name": "Weekend Favorites",
+  "movieIds": [1, 2],
+  "isPublic": true
+}
+
+PUT {{baseUrl}}/api/media/playlists/1
+DELETE {{baseUrl}}/api/media/playlists/1
